@@ -431,7 +431,7 @@ GameObject:
   - component: {fileID: 842334241}
   - component: {fileID: 842334240}
   m_Layer: 0
-  m_Name: DropoffZone
+  m_Name: DropOffZone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
