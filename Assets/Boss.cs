@@ -23,9 +23,10 @@ public class Boss : MonoBehaviour
     void OnCollisionEnter(Collision collision)
     {
         // Check if the colliding object has the Attack script/component
-        Attack attacker = collision.gameObject.GetComponent<Attack>();
+        CardStats attacker = collision.gameObject.GetComponent<CardStats>();
         if (attacker != null)
         {
+            Debug.Log("Boss was attacked");
             // Deduct health by the attack value of the other object
             health -= attacker.attackValue;
             healthText.text = "" + health;
