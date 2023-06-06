@@ -31,7 +31,13 @@ public class MyCardDeck : MonoBehaviour
             Debug.Log("I selected function ran");
             Vector3 positionCurrent = GameObject.Find("CardDeck").transform.position;
             Vector3 new_pos = new Vector3(positionCurrent.x, positionCurrent.y + 0.05f, positionCurrent.z);
-            Instantiate(objectToSpawn[randomIndex], new_pos, Quaternion.identity);
+
+            Card new_card = Instantiate(objectToSpawn[randomIndex], new_pos, Quaternion.identity);
+            // set rotation of new_card on x axis to 180
+            Quaternion newRotation = Quaternion.Euler(180, new_card.transform.rotation.y, new_card.transform.rotation.z);
+            new_card.transform.rotation = newRotation;
+
+
             
             objectToSpawn.Remove(objectToSpawn[randomIndex]);
             audioSource.PlayOneShot(drawSound); // Add this line to play the draw sound
