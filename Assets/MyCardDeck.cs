@@ -6,7 +6,10 @@ public class MyCardDeck : MonoBehaviour
 {
     //public GameObject objectToSpawn;
     public List <Card> objectToSpawn;
-
+    public AudioSource audioSource; // Add this line
+    public AudioClip drawSound; // Add this line
+    public AudioClip touchSound; // Add this line
+    
     public void MyFunction() 
     {
         Debug.Log("Start MyCustomFunction");
@@ -16,7 +19,7 @@ public class MyCardDeck : MonoBehaviour
     public void IHoverOver() 
     {
         Debug.Log("Start I Hovered Over function ran");
-
+        audioSource.PlayOneShot(touchSound); // Add this line to play the touch sound
     }
 
 
@@ -31,7 +34,7 @@ public class MyCardDeck : MonoBehaviour
             Instantiate(objectToSpawn[randomIndex], new_pos, Quaternion.identity);
             
             objectToSpawn.Remove(objectToSpawn[randomIndex]);
-
+            audioSource.PlayOneShot(drawSound); // Add this line to play the draw sound
             
         }
     }
