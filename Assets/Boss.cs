@@ -8,6 +8,8 @@ public class Boss : MonoBehaviour
     public int health;
     public Animator animator; // Reference to the Animator component
     public TextMeshPro healthText; // Reference to the TextMeshProUGUI component
+    public AudioSource audioSource; // Reference to the Audio Source component
+    public AudioClip winSound; // Reference to the Audio Clip file
 
     void Start()
     {
@@ -19,6 +21,8 @@ public class Boss : MonoBehaviour
         healthText.text = "" + health;
         
         healthText.color = Color.green;
+
+        audioSource = GetComponent<AudioSource>(); // Get the Audio Source component
     }
 
     void OnCollisionEnter(Collision collision)
@@ -44,6 +48,9 @@ public class Boss : MonoBehaviour
                 GameObject.Find("GameOverText").GetComponent<TextMeshPro>().color = new Color(206,105,0);
                 // set text to bold
                 GameObject.Find("GameOverText").GetComponent<TextMeshPro>().fontStyle = FontStyles.Bold;
+
+                // Play the win sound on the Audio Source
+                audioSource.PlayOneShot(winSound);
 
             }
             attacker.transform.position = attacker.originalPosition;
