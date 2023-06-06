@@ -91,7 +91,7 @@ public class CardDrop : MonoBehaviour
 
             card.cardFront.SetActive(false);
             card.cardBack.SetActive(false);
-            other.transform.localScale = Vector3.one;
+            other.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
             CardStats attacker = other.GetComponent<CardStats>();
             if (attacker != null)
             {
