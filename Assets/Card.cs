@@ -12,10 +12,11 @@ public class Card : MonoBehaviour
     public int attackValue;
     public int healthValue;
     public bool isGrabbed;
+    public bool isCardForm;
 
     void Start() {
 
-        isGrabbed = false;
+        this.isGrabbed = false;
 
         attackValue = this.GetComponent<CardStats>().attackValue;
         healthValue = this.GetComponent<CardStats>().healthValue;
@@ -37,26 +38,42 @@ public class Card : MonoBehaviour
     }
 
     void Update() {
-        if (this.isGrabbed) {
-            // set rotation on x axis to -90, keep other rotations the same
-            Quaternion newRotation = Quaternion.Euler(-90, this.transform.rotation.y, this.transform.rotation.z);
-            this.transform.rotation = newRotation;
-            // print I'm grabbed
-            print("I'm grabbed");
+
+        // if (this.isGrabbed) {
+        //     // set rotation on x axis to -90, keep other rotations the same
+        //     Quaternion newRotation = Quaternion.Euler(-90, this.transform.rotation.y, this.transform.rotation.z);
+        //     this.transform.rotation = newRotation;
+        //     // print I'm grabbed
+        //     print("I'm grabbed");
 
                         
-        }
+        // }
     }
 
     public void setGrabbed(bool grabbed) {
         this.isGrabbed = grabbed;
+
+            
     }
 
     public void setGrabbedTrue() {
+        Debug.Log("setGrabbedTrue");
+
+        // set rotation of card to 0 on x axis
+        this.transform.rotation = Quaternion.Euler(0, this.transform.rotation.y, this.transform.rotation.z);
+    
+
+
         this.isGrabbed = true;
     }
     public void setGrabbedFalse() {
+        Debug.Log("setGrabbedFalse");
+
         this.isGrabbed = false;
+
+        // turn on gravity of card
+        this.GetComponent<Rigidbody>().useGravity = true;
+
     }
     
 }
