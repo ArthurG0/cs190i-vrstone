@@ -32,6 +32,7 @@ public class Boss : MonoBehaviour
         if (attacker != null)
         {
             Debug.Log("Boss was attacked");
+            attacker.transform.position = attacker.originalPosition;
             // Deduct health by the attack value of the other object
             health -= attacker.attackValue;
             healthText.text = "" + health;
@@ -53,7 +54,7 @@ public class Boss : MonoBehaviour
                 audioSource.PlayOneShot(winSound);
 
             }
-            attacker.transform.position = attacker.originalPosition;
+            
         }
     }
 }
