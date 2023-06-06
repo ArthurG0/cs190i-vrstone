@@ -36,6 +36,15 @@ public class Boss : MonoBehaviour
             {
                 // Play the 'Die' animation
                 animator.Play("Die");
+
+                // find a gameobject with name GameOverText and set its text to "You Win!"
+                GameObject.Find("GameOverText").GetComponent<TextMeshPro>().text = "Victory!\nYou've defeated the boss!";
+                GameObject.Find("GameOverText").GetComponent<TextMeshPro>().fontSize = 12;
+                // set color to orange
+                GameObject.Find("GameOverText").GetComponent<TextMeshPro>().color = new Color(206,105,0);
+                // set text to bold
+                GameObject.Find("GameOverText").GetComponent<TextMeshPro>().fontStyle = FontStyles.Bold;
+
             }
             attacker.transform.position = attacker.originalPosition;
         }

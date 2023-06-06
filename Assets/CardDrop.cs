@@ -164,6 +164,11 @@ public class CardDrop : MonoBehaviour
         healthText.color = Color.red;
         costText.color = Color.blue;
 
+        // make attacktext and healthtext bold
+        attackText.fontStyle = FontStyles.Bold;
+        healthText.fontStyle = FontStyles.Bold;
+
+
             
 
 
@@ -188,11 +193,12 @@ public class CardDrop : MonoBehaviour
         }
         // set the color to a color value #bbccee
 
+        // change the scale of the card to 0.5, 0.5, 0.5
+
 
 
         card.cardFront.SetActive(false);
         card.cardBack.SetActive(false);
-        other.transform.localScale = Vector3.one;
         CardStats attacker = other.GetComponent<CardStats>();
         if (attacker != null)
         {
@@ -200,6 +206,7 @@ public class CardDrop : MonoBehaviour
             attacker.UpdateOriginalPosition(other.transform.position);
         }
 
+        other.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
 
 
             // if (meshFilter != null) // Check if the Card has a MeshFilter component
