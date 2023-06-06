@@ -17,6 +17,7 @@ public class Boss : MonoBehaviour
 
         // Initially update the health display
         healthText.text = "" + health;
+        
         healthText.color = Color.green;
     }
 

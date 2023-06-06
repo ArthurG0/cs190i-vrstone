@@ -13,6 +13,7 @@ public class Card : MonoBehaviour
     public int healthValue;
     public bool isGrabbed;
     public bool isCardForm;
+    public int costValue;
 
     void Start() {
 
@@ -20,6 +21,7 @@ public class Card : MonoBehaviour
 
         attackValue = this.GetComponent<CardStats>().attackValue;
         healthValue = this.GetComponent<CardStats>().healthValue;
+        costValue = this.GetComponent<CardStats>().costValue;
 
 
         // get the Attack child gameobject and enable it
@@ -33,6 +35,9 @@ public class Card : MonoBehaviour
 
         this.transform.Find("Attack").gameObject.GetComponent<TextMeshPro>().fontSize = 20;
         this.transform.Find("Health").gameObject.GetComponent<TextMeshPro>().fontSize = 20;
+
+        this.transform.Find("Cost").gameObject.GetComponent<TextMeshPro>().color = Color.blue;
+        this.transform.Find("Cost").gameObject.GetComponent<TextMeshPro>().fontSize = 10;
 
 
     }
